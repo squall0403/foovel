@@ -1,0 +1,23 @@
+<section>
+  <form ng-submit="profileLoginForm.$valid && login()" name="profileLoginForm">
+    <div class="bar bar-header bar-positive" style="position: inherit">
+      <h1 class="title">Login</h1>
+    </div>
+      <div class="list list-inset">
+      <label class="item item-input">
+        <input type="number" placeholder="Phone number" ng-model="phone">
+      </label>
+      <label class="item item-input">
+        <input type="password" placeholder="Password" ng-model="password">
+      </label>
+    </div>
+    <div class="padding">
+      <button class="button-block button button-calm" type="submit">Login</button>
+      <div class="padding" style="text-align:center">
+        <p>Or</p>
+        <p>Register an account <a ng-href="#/register">here</a></p>
+      </div>
+    </div>
+
+  </form>
+</section>

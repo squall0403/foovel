@@ -1,5 +1,16 @@
 <section>
 <ion-spinner class="spinner-royal" ng-if="!profile.username" icon="ripple" style="margin:45%;float:left"></ion-spinner>
-  {{profile.url}}
-
+<div ng-if="profile.username">
+  <div class="list">
+    <a class="item item-thumbnail-left" href="#">
+      <img src="https://robohash.org/P3O.png?set=set4&size=150x150">
+      <h2>{{profile.first_name}}</h2>
+      <p>{{profile.last_name}}</p>
+    </a>
+    <div class="item"><i class="icon ion-android-call royal padding"></i>{{profile.phone}}</div>
+    <div class="item"><i class="icon ion-email royal padding"></i>{{profile.email}}</div>
+    <div class="item"><i class="icon ion-paper-airplane royal padding"></i>{{profile.address}}</div>
+    <div class="item"><i class="icon ion-earth royal padding"></i>{{profile.language}}</div>
+  </div>
+</div>
 </section>

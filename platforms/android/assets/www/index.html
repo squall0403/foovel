@@ -37,16 +37,19 @@
     -->
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
     <!-- Custom JS and CSS -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.32/angular.min.js" charset="utf-8"></script> -->
     <script src="js/ionic.bundle.min.js" charset="utf-8"></script>
     <script src="js/angular-route.min.js" charset="utf-8"></script>
     <script src="js/jquery-3.2.1.min.js" charset="utf-8"></script>
-    <script src="js/app.js" charset="utf-8"></script>
+    <script src="js/module/app.js" charset="utf-8"></script>
+    <script src="js/module/profile.js" charset="utf-8"></script>
+    <script src="js/module/profileregister.js" charset="utf-8"></script>
+    <script src="js/module/profilelogin.js" charset="utf-8"></script>
+    <script src="js/module/favourites.js" charset="utf-8"></script>
     <link rel="stylesheet" href="css/ionic.min.css">
-    <title>Hello World</title>
+    <title>FG100</title>
 </head>
 <body>
-    <div class="tabs-striped tabs tabs-color-positive tabs-icon-top" ng-controller="TabController">
+    <div class="tabs-striped tabs tabs-royal tabs-icon-top" ng-controller="TabController">
         <a id="home" ng-href="#" class="tab-item" ng-class="{active : isActive('') || isActive('/')}">
           <i class="icon ion-home"></i>
           Home
@@ -55,7 +58,7 @@
           <i class="icon ion-star"></i>
           Favorites
         </a>
-        <a class="tab-item" ng-href="#/profile" ng-class="{active : isActive('/profile')}">
+        <a class="tab-item" ng-href="#/login" ng-class="{active : isActive('/profile') || isActive('/login') || isActive('/register')}">
           <i class="icon ion-gear-a"></i>
           Profile
         </a>

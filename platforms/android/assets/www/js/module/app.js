@@ -2,6 +2,8 @@
 (function(){
   // Define angular app
   var app = angular.module('myApp',[
+    'myProfile',
+    'myFavourites',
     'ngRoute',
     'ionic'
   ]);
@@ -11,6 +13,18 @@
     when('/profile', {
       templateUrl: 'partials/profile.html',
       controller: 'ProfileController'
+    }).
+    when('/favourites', {
+      templateUrl: 'partials/favourites.html',
+      controller: 'FavouriteController'
+    }).
+    when('/login', {
+      templateUrl: 'partials/login.html',
+      controller: 'ProfileLoginCtroller'
+    }).
+    when('/register', {
+      templateUrl: 'partials/register.html',
+      controller: 'ProfileRegisterCtroller'
     }).
     otherwise('/');
 
@@ -23,16 +37,4 @@
    }
   });
 
-  app.controller('ProfileController', function($scope, $http){
-    var settings = {
-      method: 'GET',
-      url: 'http://test.fastget.net/api/profiles/4',
-      headers:{"authorization": "Basic ZGRnZ2VlOkZnMTAwITIzNA=="},
-      async: true,
-      crossDomain: true
-    }
-      $http(settings).then(function(data){
-          $scope.profile = data.data;
-      })
-  });
 })();
