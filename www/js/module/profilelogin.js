@@ -16,9 +16,8 @@
     } // Used to encrypt username add password to a string of Base64
 
     // check cache for local profiles
-    var inLogPrf = localStorage.getItem('inLog'); // Get login info from cache
 
-    if (inLogPrf) { // If login info is availavle, redirect user to profile page
+    if (localStorage.getItem('inLog')) { // If login info is availavle, redirect user to profile page
       $location.path('/profile');
     }
 
@@ -32,10 +31,14 @@
         async: true,
         crossDomain: true
       }
-
+      console.log(settings);
         $http(settings).then(function(data){ // Perform $http call
-            localStorage.setItem('inLog',str); // on success log in, store login info to cache
-            $location.path('/profile'); // redirect user to profile page
+          var localProfile = JSON.stringify(data.data[0]);
+          localStorage.setItem('inLog',localProfile); // on success log in, store login info to cache
+          $location.path('/profile'); // redirect user to profile page
+        }, function(response){
+          alert('Can not login, please check your phone number and password')
+          console.log(response);
         }) // $http function
     } // login function
   }); // Controller

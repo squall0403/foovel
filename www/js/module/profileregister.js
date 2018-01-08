@@ -48,11 +48,11 @@
 
       $http(settings).then(function(data){
           alert('Accout created, Logging in')
-          var str = "Basic " + b64EncodeUnicode(profileObject.phone + ":" + profileObject.password); // Assign encrypt info to var str
-          localStorage.setItem('inLog',str); // on success log in, store login info to cache
+          var localProfile = JSON.stringify(data.data);
+          localStorage.setItem('inLog',localProfile); // on success log in, store login info to cache
           $location.path('/profile'); // redirect user to profile page
       }, function(response){
-          alert('Can not create account');
+          alert('Can not create account, please check your input');
       });
 
     };

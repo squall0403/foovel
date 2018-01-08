@@ -6,20 +6,14 @@
     'profileLogin' // Inject Profile login module
   ]);
 
-  myProfile.controller('ProfileController', function($scope, $http){
+  myProfile.controller('ProfileController', function($scope, $location){
 
     var displayProfile = localStorage.getItem('inLog'); //Get log in data from cache
+      $scope.profile = JSON.parse(displayProfile); // Set profile to elemet 0 in array, profile is linked to model in html template
 
-    var settings = { // Define settings for $http call
-      method: 'GET',
-      url: BASE_URL + 'profiles/',
-      headers:{"authorization": displayProfile},
-      async: true,
-      crossDomain: true
-    }
-
-      $http(settings).then(function(data){ // Perform $http call
-          $scope.profile = data.data[0]; // Set profile to elemet 0 in array, profile is linked to model in html template
-      })
+      $scope.logOut = function(){
+        localStorage.removeItem('inLog');
+        $location.path('/login');
+      }
   });
 })();
