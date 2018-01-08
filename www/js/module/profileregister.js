@@ -1,13 +1,26 @@
+// Profile register module
 (function(){
   var profileRegister = angular.module('profileRegister', [
 
   ]);
 
-  profileRegister.controller('ProfileRegisterCtroller', function($scope, $http){
-    var profileObject={}
+  profileRegister.controller('ProfileRegisterCtroller', function($scope, $http, $location){
+
+    // Encrypt Base64 function
+    function b64EncodeUnicode(str) {
+      return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g,
+      function toSolidBytes(match, p1) {
+        return String.fromCharCode('0x' + p1);
+      }));
+    } // Used to encrypt username add password to a string of Base64
+
+    // Declear profile object
+    var profileObject={};
+
+    // Declare post options
     var settings = {
       method: 'POST',
-      url: 'http://test.fastget.net/api/profiles/',
+      url: BASE_URL + 'profiles/',
       data: {},
       headers:{
         "x-csrftoken": "csrf",
@@ -16,8 +29,9 @@
       },
       async: true,
       crossDomain: true
-    }
+    };
 
+    // Define create profile function
     $scope.createProfile = function (){
       profileObject = {
         "username":this.phone,
@@ -29,17 +43,20 @@
         "email":this.email,
       };
 
-      console.log(profileObject);
+      // Call API to create profile
       settings.data = Object.assign(settings.data,profileObject);
 
       $http(settings).then(function(data){
-          // $scope.returnData = data.data;
           alert('Accout created, Logging in')
+          var str = "Basic " + b64EncodeUnicode(profileObject.phone + ":" + profileObject.password); // Assign encrypt info to var str
+          localStorage.setItem('inLog',str); // on success log in, store login info to cache
+          $location.path('/profile'); // redirect user to profile page
       }, function(response){
           alert('Can not create account');
       });
 
-    }
+    };
+    // Finish Registration
 
   });
 
