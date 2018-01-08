@@ -2,6 +2,7 @@
   "name": "net.fastget.fg",
   "version": "1.0.0",
   "displayName": "Fastget",
+  "short_name": "Fastget",
   "cordova": {
     "platforms": [
       "android"

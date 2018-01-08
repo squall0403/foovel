@@ -19,12 +19,13 @@
     specific language governing permissions and limitations
     under the License.
 -->
-<html ng-app="myApp">
+<html ng-app="myApp" lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=6, minimum-scale=1, width=device-width" />
+    <meta name="theme-color" content="#317EFB"/>
     <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" /> -->
     <!-- Good default declaration:
@@ -45,6 +46,8 @@
     <script src="js/module/profileregister.js" charset="utf-8"></script>
     <script src="js/module/profilelogin.js" charset="utf-8"></script>
     <script src="js/module/favourites.js" charset="utf-8"></script>
+
+    <link rel="manifest" href="../package.json">
     <link rel="stylesheet" href="css/ionic.css">
     <link rel="icon" href="res/icon/windows/Square310x310Logo.scale-100.png">
     <title>FG100</title>
