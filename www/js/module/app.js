@@ -1,5 +1,7 @@
 
 (function(){
+  BASE_URL = 'http://test.fastget.net/api/';
+
   // Define angular app
   var app = angular.module('myApp',[
     'myProfile',
@@ -8,7 +10,7 @@
     'ionic'
   ]);
 
-  app.config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider){
+  app.config(['$routeProvider', function($routeProvider){
     $routeProvider.
     when('/profile', {
       templateUrl: 'partials/profile.html',
@@ -28,7 +30,6 @@
     }).
     otherwise('/');
 
-    // $locationProvider.hashPrefix('!');
   }]);
 
   app.controller('TabController', function($scope, $location){

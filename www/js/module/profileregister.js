@@ -4,10 +4,13 @@
   ]);
 
   profileRegister.controller('ProfileRegisterCtroller', function($scope, $http){
-    var profileObject={}
+    // Declear profile object
+    var profileObject={};
+
+    // Declare post options
     var settings = {
       method: 'POST',
-      url: 'http://test.fastget.net/api/profiles/',
+      url: BASE_URL + 'profiles/',
       data: {},
       headers:{
         "x-csrftoken": "csrf",
@@ -16,8 +19,9 @@
       },
       async: true,
       crossDomain: true
-    }
+    };
 
+    // Define create profile function
     $scope.createProfile = function (){
       profileObject = {
         "username":this.phone,
@@ -29,18 +33,20 @@
         "email":this.email,
       };
 
-      console.log(profileObject);
+      // Call API to create profile
       settings.data = Object.assign(settings.data,profileObject);
 
       $http(settings).then(function(data){
-          // $scope.returnData = data.data;
           alert('Accout created, Logging in')
       }, function(response){
           alert('Can not create account');
       });
 
-    }
+    };
+    // Finish Registration
+
 
   });
+
 
 })();

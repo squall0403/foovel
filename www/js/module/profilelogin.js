@@ -17,7 +17,7 @@
 
       var settings = {
         method: 'GET',
-        url: 'http://test.fastget.net/api/profiles/',
+        url: BASE_URL + 'profiles/',
         headers:{"authorization": str},
         async: true,
         crossDomain: true
