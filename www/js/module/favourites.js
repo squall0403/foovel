@@ -1,3 +1,5 @@
+// Favourite controller module
+
 (function(){
   var myFavourites = angular.module('myFavourites', [
 

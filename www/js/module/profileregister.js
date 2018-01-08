@@ -1,9 +1,19 @@
+// Profile register module
 (function(){
   var profileRegister = angular.module('profileRegister', [
 
   ]);
 
-  profileRegister.controller('ProfileRegisterCtroller', function($scope, $http){
+  profileRegister.controller('ProfileRegisterCtroller', function($scope, $http, $location){
+
+    // Encrypt Base64 function
+    function b64EncodeUnicode(str) {
+      return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g,
+      function toSolidBytes(match, p1) {
+        return String.fromCharCode('0x' + p1);
+      }));
+    } // Used to encrypt username add password to a string of Base64
+
     // Declear profile object
     var profileObject={};
 
@@ -38,6 +48,9 @@
 
       $http(settings).then(function(data){
           alert('Accout created, Logging in')
+          var str = "Basic " + b64EncodeUnicode(profileObject.phone + ":" + profileObject.password); // Assign encrypt info to var str
+          localStorage.setItem('inLog',str); // on success log in, store login info to cache
+          $location.path('/profile'); // redirect user to profile page
       }, function(response){
           alert('Can not create account');
       });
@@ -45,8 +58,6 @@
     };
     // Finish Registration
 
-
   });
-
 
 })();
