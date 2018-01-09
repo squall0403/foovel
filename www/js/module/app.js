@@ -2,7 +2,7 @@
 
 (function(){
   BASE_URL = 'http://test.fastget.net/api/';
-  LANGUAGE_URL = 'http://test.fastget.net/static/languages/';
+  LANGUAGE_URL = 'http://test.fastget.net/api/translations/';
 
   // Define angular app
   var app = angular.module('myApp',[
@@ -37,9 +37,8 @@
   }]);
 
   var userLang; // store user selected language
-
-  app.controller('TranslationController', ['$translate', function($translate){ // Controller for translation provider, primarily getting languages packs, save to local storage
-
+  var targetLang = {};
+  app.controller('TranslationController', ['$http', '$translate', function($http, $translate){ // Controller for translation provider, primarily getting languages packs, save to local storage
     if (!localStorage.getItem('lang')) {
       localStorage.setItem('lang','en');
     } else {
@@ -52,11 +51,15 @@
 
   app.config(['$translateProvider', function($translateProvider){ // Config translation Provider
 
-    $translateProvider.useStaticFilesLoader({
-      prefix: 'http://test.fastget.net/static/languages/',
-      suffix: '.json'
-    });
-    $translateProvider.preferredLanguage('en');
+    // $translateProvider.useStaticFilesLoader({
+    //   prefix: LANGUAGE_URL,
+    //   suffix: '.json',
+    //   headers: {"authorization": "Basic MTEzNzY2NTM6RmcxMDAhMjM0NQ=="}
+    // });
+
+    $translateUrlLoader('http://test.fastget.net/api/translations/','lang=vi');
+
+    $translateProvider.preferredLanguage('vi');
     $translateProvider.useSanitizeValueStrategy('escape');
   }]);
 
