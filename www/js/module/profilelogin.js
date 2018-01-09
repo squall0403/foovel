@@ -30,15 +30,14 @@
         headers:{"authorization": str},
         async: true,
         crossDomain: true
-      }
-      console.log(settings);
+      };
         $http(settings).then(function(data){ // Perform $http call
           var localProfile = JSON.stringify(data.data[0]);
+          localStorage.setItem('auth',str);
           localStorage.setItem('inLog',localProfile); // on success log in, store login info to cache
           $location.path('/profile'); // redirect user to profile page
         }, function(response){
           alert('Can not login, please check your phone number and password')
-          console.log(response);
         }) // $http function
     } // login function
   }); // Controller

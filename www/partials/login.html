@@ -1,21 +1,21 @@
 <section>
   <form ng-submit="profileLoginForm.$valid && login()" name="profileLoginForm">
     <div class="bar bar-header bar-positive" style="position: inherit">
-      <h1 class="title">Login</h1>
+      <h1 class="title">{{'PROFILE_BTN_LOGIN' | translate}}</h1>
     </div>
       <div class="list list-inset">
       <label class="item item-input">
-        <input type="number" placeholder="Phone number" ng-model="phone">
+        <input type="number" placeholder="{{'PROFILE_LBL_PHONE' | translate}}" ng-model="phone">
       </label>
       <label class="item item-input">
-        <input type="password" placeholder="Password" ng-model="password">
+        <input type="password" placeholder="{{'PROFILE_INP_LOGINPASSWORD'|translate}}" ng-model="password">
       </label>
     </div>
     <div class="padding">
-      <button class="button-block button button-assertive" type="submit">Login</button>
+      <button class="button-block button button-assertive" type="submit">{{'PROFILE_BTN_LOGIN' | translate}}</button>
       <div class="padding" style="text-align:center">
-        <p>Or</p>
-        <p>Register an account <a ng-href="#/register">here</a></p>
+        <p>{{'PROFILE_TXT_OR' | translate}}</p>
+        <p>{{'PROFILE_TXT_REGISTER_ACC'|translate}} <a ng-href="#/register">{{'PROFILE_TXT_REGISTER_ACC_HERE'|translate}}</a></p>
       </div>
     </div>
 

@@ -49,6 +49,8 @@
       $http(settings).then(function(data){
           alert('Accout created, Logging in')
           var localProfile = JSON.stringify(data.data);
+          var auth = profileObject.username + ":" + profileObject.password;
+          localStorage.setItem('auth',auth);
           localStorage.setItem('inLog',localProfile); // on success log in, store login info to cache
           $location.path('/profile'); // redirect user to profile page
       }, function(response){
