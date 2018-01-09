@@ -30,27 +30,28 @@
         localStorage.setItem('lang', lang); // write new profile object to cache
 
         // Start to update profile
-        // var auth = localStorage.getItem('auth');
-        // var settings = { // Define settins for $http call
-        //   method: 'PUT',
-        //   url: openedProfile.url,
-        //   async: true,
-        //   crossDomain: true,
-        //   headers:{
-        //     "x-csrftoken": "csrf",
-        //     "content-type": "application/json",
-        //     "authorization": auth
-        //   },
-        //   data:{
-        //     "language":lang,
-        //     "username":openedProfile.phone,
-        //     "phone":openedProfile.phone
-        //   }
-        // };
-        // $http(settings).then(function(data){
-        //   console.log(data);
-        // })
-        location.reload(); // call function to reload page
+        var auth = localStorage.getItem('auth');
+        var settings = { // Define settins for $http call
+          method: 'PUT',
+          url: openedProfile.url,
+          async: true,
+          crossDomain: true,
+          headers:{
+            "content-type": "application/json",
+            "authorization": auth,
+            'Access-Control-Allow-Methods':'*'
+          },
+          data:{
+            "language":lang,
+            "username":openedProfile.phone,
+            "phone":openedProfile.phone
+          }
+        };
+        $http(settings).then(function(data){
+          console.log(data);
+          location.reload(); // call function to reload page
+        })
+
       };
 
   });
