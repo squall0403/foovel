@@ -36,32 +36,32 @@
     // $locationProvider.html5Mode(true).hashPrefix('');
   }]);
 
+  // Start to control translation
   var userLang; // store user selected language
   var targetLang = {};
+
+  app.config(['$translateProvider', function($translateProvider){ // Config translation Provider
+
+    $translateProvider.preferredLanguage('en');
+    $translateProvider.useSanitizeValueStrategy('escape');
+  }]);
+
   app.controller('TranslationController', ['$http', '$translate', function($http, $translate){ // Controller for translation provider, primarily getting languages packs, save to local storage
-    if (!localStorage.getItem('lang')) {
+    // Load static file
+
+
+    if (!localStorage.getItem('lang')) { // Get user selected language from cache
       localStorage.setItem('lang','en');
+      userLang = localStorage.getItem('lang');
     } else {
       userLang = localStorage.getItem('lang');
     }
 
-    $translate.use(userLang);
+    $translate.use(userLang); // translate using user selected language
 
   }]);
 
-  app.config(['$translateProvider', function($translateProvider){ // Config translation Provider
 
-    // $translateProvider.useStaticFilesLoader({
-    //   prefix: LANGUAGE_URL,
-    //   suffix: '.json',
-    //   headers: {"authorization": "Basic MTEzNzY2NTM6RmcxMDAhMjM0NQ=="}
-    // });
-
-    $translateUrlLoader('http://test.fastget.net/api/translations/','lang=vi');
-
-    $translateProvider.preferredLanguage('vi');
-    $translateProvider.useSanitizeValueStrategy('escape');
-  }]);
 
   app.controller('TabController', function($scope, $location){
     $scope.isActive = function(route) { // Set tab as active when user click on it
