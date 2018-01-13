@@ -3,38 +3,38 @@
   <ion-content scrollbar-y="false" style="margin-bottom:100px">
     <form name="profileCreationForm" ng-submit="profileCreationForm.$valid && createProfile()">
       <div class="bar bar-header bar-royal" style="position: inherit">
-        <h1 class="title">{{'PROFILE_TXT_REGISTER_ACC'|translate}}</h1>
+        <h1 class="title">{{'TXT.REGISTER'|translate}}</h1>
       </div>
       <div class="list list-inset">
         <label class="item item-input item-stacked-label">
-          <span class="input-label">{{'PROFILE_LBL_FIRSTNAME'|translate}}</span>
-          <input type="text" placeholder="{{'PROFILE_LBL_FIRSTNAME'|translate}}" ng-model="first_name">
+          <span class="input-label">{{'FORM.FIRSTNAME'|translate}}</span>
+          <input type="text" placeholder="{{'FORM.FIRSTNAME'|translate}}" ng-model="first_name">
         </label>
         <label class="item item-input item-stacked-label">
-          <span class="input-label">{{'PROFILE_LBL_LASTNAME'|translate}}</span>
-          <input type="text" placeholder="{{'PROFILE_LBL_FIRSTNAME'|translate}}" ng-model="last_name">
+          <span class="input-label">{{'FORM.LASTNAME'|translate}}</span>
+          <input type="text" placeholder="{{'FORM.LASTNAME'|translate}}" ng-model="last_name">
         </label>
         <label class="item item-input item-stacked-label">
-          <span class="input-label">{{'PROFILE_LBL_EMAIL'|translate}}</span>
-          <input type="email" placeholder="{{'PROFILE_LBL_EMAIL'|translate}}" ng-model="email">
+          <span class="input-label">{{'FORM.EMAIL'|translate}}</span>
+          <input type="email" placeholder="{{'FORM.EMAIL'|translate}}" ng-model="email">
         </label>
         <label class="item item-input item-stacked-label">
-          <span class="input-label">{{'PROFILE_LBL_PHONE'|translate}}</span>
-          <input type="number" placeholder="{{'PROFILE_LBL_PHONE'|translate}}" ng-model="phone">
+          <span class="input-label">{{'FORM.PHONE'|translate}}</span>
+          <input type="number" placeholder="{{'FORM.PHONE'|translate}}" ng-model="phone">
         </label>
         <label class="item item-input item-stacked-label">
-          <span class="input-label">{{'PROFILE_INP_LOGINPASSWORD'|translate}}</span>
-          <input type="password" placeholder="{{'PROFILE_INP_LOGINPASSWORD'|translate}}" ng-model="password">
+          <span class="input-label">{{'FORM.PASSWORD'|translate}}</span>
+          <input type="password" placeholder="{{'FORM.PASSWORD'|translate}}" ng-model="password">
         </label>
         <label class="item item-input item-stacked-label">
-          <span class="input-label">{{'PROFILE_LBL_ADDRESS'|translate}}</span>
-          <input type="text" placeholder="{{'PROFILE_LBL_ADDRESS'|translate}}" ng-model="address">
+          <span class="input-label">{{'FORM.ADDRESS'|translate}}</span>
+          <input type="text" placeholder="{{'FORM.ADDRESS'|translate}}" ng-model="address">
         </label>
         <button ng-class="{disabled: profileCreationForm.$invalid}" type="submit" class="button button-block button-balanced">
-          {{'PROFILE_TXT_REGISTER_ACC'|translate}}
+          {{'BUTTON.REGISTER'|translate}}
         </button>
         <div class="padding" style="text-align:center">
-          <p><a ng-href="#/login">{{'PROFILE_BTN_LOGIN'|translate}}</a>{{'PROFILE_LBL_LOGIN_ACC'|translate}}</p>
+          <p><a ng-href="#/login">{{'BUTTON.LOGIN'|translate}}</a>{{'TXT.HAD_ACC'|translate}}</p>
         </div>
       </div>
     </form>

@@ -1,0 +1,47 @@
+{
+  "LABEL":{
+    "BIZCATE":"Business Category",
+    "LANGUAGE":"Ngôn ngữ",
+    "EMAIL":"Email",
+    "ADDRESS":"Địa chỉ",
+    "PHONE":"Điện thoại",
+    "GRADCRITERIA":"Tìm kiếm cho",
+    "LOCATION":"Địa điểm",
+    "LOGIN":"Đăng nhập",
+    "LOGIN":"Đăng xuất"
+
+  },
+  "BUTTON":{
+    "SEARCH":"Tìm kiếm",
+    "LOGIN":"Đăng nhập",
+    "YES":"Có",
+    "NO":"Không",
+    "HOME":"Trang chính",
+    "PROFILE":"Tài khoản",
+    "FAVOURITE":"Ưa thích",
+    "CHANGEPASS":"Đỗi mật khẩu",
+    "CLEAR":"Xóa",
+    "LOGOUT":"Đăng xuất",
+    "REGISTER": "Đang ký tài khoản"
+  },
+  "FORM":{
+    "PASSWORD":"Mật khẩu",
+    "LOGINID":"Mã đăng nhập",
+    "PHONE":"Số điện thoại",
+    "FIRSTNAME":"Tên",
+    "LASTNAME":"Họ",
+    "EMAIL":"Email",
+    "ADDRESS":"Đại chỉ"
+  },
+  "TXT":{
+    "REMOVE_SP_CONTENT":"Bạn đang bỏ *SP Name* ra khỏ danh sách",
+    "REMOVE_SP_TITLE":"Bỏ SP",
+    "OR":"Hoặc",
+    "REGISTER_ACC": "Đăng ký tài khoản ",
+    "HERE":"ở đây",
+    "REGISTER": "Đăng ký tài khoản",
+    "HAD_ACC": " nếu bạn đã có tài khoản",
+    "USER_INFO":"Thông tin của bạn",
+    "SETTINGS":"Chỉnh sửa"
+  }
+}

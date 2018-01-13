@@ -1,0 +1,47 @@
+{
+  "LABEL":{
+    "BIZCATE":"Business Category",
+    "LANGUAGE":"Language",
+    "EMAIL":"Email",
+    "ADDRESS":"Address",
+    "PHONE":"Phone",
+    "GRADCRITERIA":"Look for",
+    "LOCATION":"Location",
+    "LOGIN":"Login",
+    "LOGOUT":"Logout"
+
+  },
+  "BUTTON":{
+    "SEARCH":"Search",
+    "LOGIN":"Login",
+    "YES":"Yes",
+    "NO":"No",
+    "HOME":"Home",
+    "PROFILE":"Profile",
+    "FAVOURITE":"Favourtie",
+    "CHANGEPASS":"Change Password",
+    "CLEAR":"Clear",
+    "LOGOUT":"Logout",
+    "REGISTER": "Register account"
+  },
+  "FORM":{
+    "PASSWORD":"Password",
+    "LOGINID":"Login ID",
+    "PHONE":"Phone number",
+    "FIRSTNAME":"Firstname",
+    "LASTNAME":"Lastname",
+    "EMAIL":"Email",
+    "ADDRESS":"Address"
+  },
+  "TXT":{
+    "REMOVE_SP_CONTENT":"You are going to remove *SP Name* from your favourite",
+    "REMOVE_SP_TITLE":"Remove SP",
+    "OR":"Or",
+    "REGISTER_ACC": "register for an account ",
+    "HERE":"here",
+    "REGISTER": "Register account",
+    "HAD_ACC": " if you had account",
+    "USER_INFO":"User information",
+    "SETTINGS":"Settings"
+  }
+}

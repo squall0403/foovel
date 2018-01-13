@@ -42,13 +42,17 @@
 
   app.config(['$translateProvider', function($translateProvider){ // Config translation Provider
 
+    // Load static file
+    $translateProvider.useStaticFilesLoader({
+      prefix: 'res/languages/',
+      suffix: '.json'
+    });
+
     $translateProvider.preferredLanguage('en');
     $translateProvider.useSanitizeValueStrategy('escape');
   }]);
 
-  app.controller('TranslationController', ['$http', '$translate', function($http, $translate){ // Controller for translation provider, primarily getting languages packs, save to local storage
-    // Load static file
-
+  app.controller('TranslationController', ['$translate', function($translate){ // Controller for translation provider, primarily getting languages packs, save to local storage
 
     if (!localStorage.getItem('lang')) { // Get user selected language from cache
       localStorage.setItem('lang','en');
@@ -57,6 +61,7 @@
       userLang = localStorage.getItem('lang');
     }
 
+    $translate.refresh(userLang);
     $translate.use(userLang); // translate using user selected language
 
   }]);
