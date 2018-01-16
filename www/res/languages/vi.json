@@ -8,7 +8,7 @@
     "GRADCRITERIA":"Tìm kiếm cho",
     "LOCATION":"Địa điểm",
     "LOGIN":"Đăng nhập",
-    "LOGIN":"Đăng xuất"
+    "LOGOUT":"Đăng xuất"
 
   },
   "BUTTON":{
@@ -22,7 +22,7 @@
     "CHANGEPASS":"Đỗi mật khẩu",
     "CLEAR":"Xóa",
     "LOGOUT":"Đăng xuất",
-    "REGISTER": "Đang ký tài khoản"
+    "REGISTER": "Đăng ký tài khoản"
   },
   "FORM":{
     "PASSWORD":"Mật khẩu",
