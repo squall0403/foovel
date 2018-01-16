@@ -37,7 +37,7 @@
           localStorage.setItem('inLog',localProfile); // on success log in, store login info to cache
           $location.path('/profile'); // redirect user to profile page
         }, function(response){
-          alert('Can not login, please check your phone number and password')
+          alert('Can not login, please check your phone number and password');
         }) // $http function
     } // login function
   }); // Controller
