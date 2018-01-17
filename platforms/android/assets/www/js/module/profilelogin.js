@@ -16,12 +16,11 @@
     } // Used to encrypt username add password to a string of Base64
 
     // check cache for local profiles
-    var inLogPrf = localStorage.getItem('inLog'); // Get login info from cache
 
-    if (inLogPrf) { // If login info is availavle, redirect user to profile page
+    if (localStorage.getItem('inLog')) { // If login info is availavle, redirect user to profile page
       $location.path('/profile');
     }
-
+    //Login function
     $scope.login = function(){
       var str = "Basic " + b64EncodeUnicode($scope.phone + ":" + $scope.password); // Assign encrypt info to var str
 
@@ -31,13 +30,17 @@
         headers:{"authorization": str},
         async: true,
         crossDomain: true
-      }
-
+      };
         $http(settings).then(function(data){ // Perform $http call
-            localStorage.setItem('inLog',str); // on success log in, store login info to cache
-            $location.path('/profile'); // redirect user to profile page
+          var localProfile = JSON.stringify(data.data[0]);
+          localStorage.setItem('auth',str);
+          localStorage.setItem('inLog',localProfile); // on success log in, store login info to cache
+          $location.path('/profile'); // redirect user to profile page
+        }, function(response){
+          alert('Can not login, please check your phone number and password');
         }) // $http function
     } // login function
+
   }); // Controller
 
 })();

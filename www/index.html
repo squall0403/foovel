@@ -57,22 +57,27 @@
     <link rel="icon" href="res/icon/windows/Square310x310Logo.scale-100.png">
     <title>FG100</title>
 </head>
-<body ng-controller="TranslationController">
-    <div class="tabs-striped tabs tabs-positive tabs-icon-top" ng-controller="TabController">
-        <a id="home" ng-href="#" class="tab-item" ng-class="{active : isActive('') || isActive('/')}">
-          <i class="icon ion-home"></i>
-          {{ 'BUTTON.HOME' | translate }}
-        </a>
-        <a class="tab-item" ng-href="#/favourites" ng-class="{active : isActive('/favourites')}">
-          <i class="icon ion-star"></i>
-          {{ 'BUTTON.FAVOURITE' | translate }}
-        </a>
-        <a class="tab-item" ng-href="#/login" ng-class="{active : isActive('/profile') || isActive('/login') || isActive('/register')}">
-          <i class="icon ion-gear-a"></i>
-          {{ 'BUTTON.PROFILE' | translate }}
-        </a>
+<body>
+
+    <div ng-controller="TranslationController" >
+      <ion-spinner class="spinner-royal" ng-if="!langLoaded" icon="ripple" style="margin:45%;float:left"></ion-spinner>
+      <div class="tabs-striped tabs tabs-positive tabs-icon-top" ng-controller="TabController" ng-if="langLoaded">
+          <a id="home" ng-href="#" class="tab-item" ng-class="{active : isActive('') || isActive('/')}">
+            <i class="icon ion-home"></i>
+            {{ 'BUTTON.HOME' | translate }}
+          </a>
+          <a class="tab-item" ng-href="#/favourites" ng-class="{active : isActive('/favourites')}">
+            <i class="icon ion-star"></i>
+            {{ 'BUTTON.FAVOURITE' | translate }}
+          </a>
+          <a class="tab-item" ng-href="#/login" ng-class="{active : isActive('/profile') || isActive('/login') || isActive('/register')}">
+            <i class="icon ion-gear-a"></i>
+            {{ 'BUTTON.PROFILE' | translate }}
+          </a>
+      </div>
+      <div ng-view></div>
     </div>
-    <div ng-view></div>
+
   <script type="text/javascript" src="cordova.js"></script>
 </body>
 

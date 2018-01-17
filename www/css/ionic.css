@@ -8582,7 +8582,7 @@ progress {
   min-height: 47px;
   border-width: 1px;
   border-style: solid;
-  border-radius: 4px;
+  border-radius: 0px;
   vertical-align: top;
   text-align: center;
   text-overflow: ellipsis;
@@ -9811,3 +9811,9 @@ a.button {
   opacity: 0;
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
+
+/* Custom */
+
+.bold-text{
+  font-weight: 500;
+}

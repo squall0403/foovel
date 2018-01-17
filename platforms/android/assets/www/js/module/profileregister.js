@@ -46,14 +46,19 @@
       // Call API to create profile
       settings.data = Object.assign(settings.data,profileObject);
 
-      $http(settings).then(function(data){
-          alert('Accout created, Logging in')
-          var str = "Basic " + b64EncodeUnicode(profileObject.phone + ":" + profileObject.password); // Assign encrypt info to var str
-          localStorage.setItem('inLog',str); // on success log in, store login info to cache
-          $location.path('/profile'); // redirect user to profile page
-      }, function(response){
-          alert('Can not create account');
-      });
+
+      try {
+        $http(settings).then(function(data){
+            alert('Accout created, Logging in')
+            var localProfile = JSON.stringify(data.data);
+            var auth = profileObject.username + ":" + profileObject.password;
+            localStorage.setItem('auth',auth);
+            localStorage.setItem('inLog',localProfile); // on success log in, store login info to cache
+            $location.path('/profile'); // redirect user to profile page
+        });
+      } catch (e) {
+        console.log(e);
+      }
 
     };
     // Finish Registration

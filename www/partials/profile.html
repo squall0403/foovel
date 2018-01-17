@@ -1,31 +1,89 @@
 <section>
   <ion-content style="margin-bottom:80px" scrollbar-y="false">
     <ion-spinner class="spinner-royal" ng-if="!profile.username" icon="ripple" style="margin:45%;float:left"></ion-spinner>
-    <div ng-if="profile.username">
-      <div class="row">
-        <div class="col" style="text-align:center"><img src="https://robohash.org/P3O.png?set=set4&size=150x150"></div>
-      </div>
-      <div class="row row-center">
-        <div class="col" style="text-align:center"><h2>{{profile.first_name}} {{profile.last_name}}</h2></div>
-      </div>
-      <div class="list list-inset">
-        <div class="item item-divider">{{'TXT.USER_INFO'|translate}}</div>
-        <div class="item"><i class="icon ion-android-call royal padding"></i>{{profile.phone}}</div>
-        <div class="item"><i class="icon ion-email royal padding"></i>{{profile.email}}</div>
-        <div class="item"><i class="icon ion-paper-airplane royal padding"></i>{{profile.address}}</div>
-        <div class="item item-divider">{{'TXT.SETTINGS'|translate}}</div>
-        <div class="item"><i class="icon ion-earth royal padding"></i>
-          <select ng-model="profile.language" style="border:none;height:30px" ng-change="changeLanguage(profile.language)">
-            <option value="en">English</option>
-            <option value="vi">Tiếng Việt</option>
-          </select>
+    <form name="profileDisplay" ng-if="profile.username"  ng-switch on="editIndex">
+        <div class="row" ng-switch on="editIndex">
+          <div class="col" style="text-align:center"><img src="https://api.adorable.io/avatars/100/abott@adorable.png"></div>
+        </div> <!-- Avatar -->
+        <div class="list list-inset">
+
+          <div class="item item-divider">{{'TXT.USER_INFO'|translate}}</div> <!-- Header -->
+
+          <label class="item item-input" ng-switch-default>
+            <span class="input-label bold-text">{{'FORM.LASTNAME'|translate}}</span>{{profile.last_name}}
+          </label>
+          <div class="animate-switch" ng-switch-when="true">
+              <label class="item item-input">
+                <span class="input-label bold-text">{{'FORM.LASTNAME'|translate}}</span>
+                <input type="text" ng-model="editObject.last_name" value="{{editObject.last_name}}">
+             </label>
+          </div> <!-- Last name -->
+
+          <label class="item item-input" ng-switch-default>
+            <span class="input-label bold-text">{{'FORM.FIRSTNAME'|translate}}</span>{{profile.first_name}}
+          </label>
+          <div class="animate-switch" ng-switch-when="true">
+              <label class="item item-input">
+                <span class="input-label bold-text">{{'FORM.FIRSTNAME'|translate}}</span>
+                <input type="text" placeholder="{{'FORM.FIRSTNAME'|translate}}" ng-model="editObject.first_name" value="{{editObject.first_name}}">
+             </label>
+          </div> <!-- First name -->
+
+
+          <label class="item item-input" ng-switch-default>
+            <span class="input-label bold-text">{{'FORM.PHONE'|translate}}</span>{{profile.phone}}
+          </label>
+          <div class="animate-switch" ng-switch-when="true">
+              <label class="item item-input">
+                <span class="input-label bold-text">{{'FORM.PHONE'|translate}}</span>
+               <input disabled type="text" placeholder="{{'LABEL.PHONE'|translate}}" ng-model="editObject.phone" value="{{editObject.phone}}">
+             </label>
+          </div><!-- Phone -->
+
+          <label class="item item-input" ng-switch-default>
+            <span class="input-label bold-text">{{'FORM.EMAIL'|translate}}</span>{{profile.email}}
+          </label>
+          <div class="animate-switch" ng-switch-when="true">
+              <label class="item item-input">
+                <span class="input-label bold-text">{{'FORM.EMAIL'|translate}}</span>
+               <input type="email" placeholder="{{'LABEL.EMAIL'|translate}}" ng-model="editObject.email" value="{{editObject.email}}">
+             </label>
+          </div> <!-- Email -->
+
+          <label class="item item-input" ng-switch-default>
+            <span class="input-label bold-text">{{'FORM.ADDRESS'|translate}}</span>{{profile.address}}
+          </label>
+          <div class="animate-switch" ng-switch-when="true">
+              <label class="item item-input">
+                <span class="input-label bold-text">{{'FORM.ADDRESS'|translate}}</span>
+               <input type="text" placeholder="{{'LABEL.ADDRESS'|translate}}" ng-model="editObject.address" value="{{editObject.address}}">
+             </label>
+          </div> <!-- Address -->
+
+          <button class="button button-block button-balanced button-small icon ion-edit" ng-switch-default ng-click="editingPerson()">&nbsp;&nbsp;&nbsp;{{'BUTTON.EDIT'|translate}}</button>
+          <div class="row" ng-switch-when="true">
+            <div class="col">
+              <button type="submit"class="button button-block button-small button-balanced icon ion-checkmark" ng-click="profileDisplay.$valid && saveEdit()">&nbsp;&nbsp;&nbsp;{{'BUTTON.SAVE'|translate}}</button>
+            </div>
+            <div class="col">
+              <button class="button button-block button-small button-assertive icon ion-close"ng-click="exitEdit()">&nbsp;&nbsp;&nbsp;{{'BUTTON.EXIT'|translate}}</button>
+            </div>
+          </div>
+
+         <!-- Edit button -->
         </div>
-        <button class="button button-block button-assertive" ng-click="logOut()">{{'BUTTON.LOGOUT' | translate}}</button>
-      </div>
-    </div>
 
-
-
+          <div class="list list-inset">
+          <div class="item item-divider">{{'TXT.SETTINGS'|translate}}</div>
+            <label class="item item-input">
+              <span class="input-label bold-text">{{'LABEL.LANGUAGE'|translate}}</span>
+              <select ng-model="profile.language" style="border:none;height:30px" ng-change="changeLanguage(profile.language)">
+                <option value="en">English</option>
+                <option value="vi">Tiếng Việt</option>
+              </select>
+           </label>
+          <button class="button button-block button-small button-assertive icon ion-android-exit" ng-click="logOut()">&nbsp;&nbsp;&nbsp;{{'BUTTON.LOGOUT' | translate}}</button>
+        </div>
+    </form>
   </ion-content>
-
 </section>

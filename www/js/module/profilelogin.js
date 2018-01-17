@@ -20,7 +20,7 @@
     if (localStorage.getItem('inLog')) { // If login info is availavle, redirect user to profile page
       $location.path('/profile');
     }
-
+    //Login function
     $scope.login = function(){
       var str = "Basic " + b64EncodeUnicode($scope.phone + ":" + $scope.password); // Assign encrypt info to var str
 
@@ -40,6 +40,7 @@
           alert('Can not login, please check your phone number and password');
         }) // $http function
     } // login function
+
   }); // Controller
 
 })();

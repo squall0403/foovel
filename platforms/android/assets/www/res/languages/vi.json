@@ -8,7 +8,7 @@
     "GRADCRITERIA":"Tìm kiếm cho",
     "LOCATION":"Địa điểm",
     "LOGIN":"Đăng nhập",
-    "LOGOUT":"Đăng xuất",
+    "LOGOUT":"Đăng xuất"
 
   },
   "BUTTON":{
@@ -24,7 +24,7 @@
     "LOGOUT":"Đăng xuất",
     "REGISTER": "Đăng ký tài khoản",
     "EDIT":"Thay đổi thông tin",
-    "SAVE":"Lưu",
+    "SAVE":"Lưu thay đổi",
     "EXIT":"Thoát"
   },
   "FORM":{
@@ -34,7 +34,7 @@
     "FIRSTNAME":"Tên",
     "LASTNAME":"Họ",
     "EMAIL":"Email",
-    "ADDRESS":"Địa chỉ"
+    "ADDRESS":"Đại chỉ"
   },
   "TXT":{
     "REMOVE_SP_CONTENT":"Bạn đang bỏ *SP Name* ra khỏ danh sách",

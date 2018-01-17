@@ -39,8 +39,13 @@
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
     <!-- Custom JS and CSS -->
     <script src="js/ionic.bundle.min.js" charset="utf-8"></script>
+
     <script src="js/angular-route.min.js" charset="utf-8"></script>
+    <script src="js/angular-sanitize.min.js" charset="utf-8"></script>
+    <script src="js/angular-translate.min.js" charset="utf-8"></script>
+    <script src="js/angular-translate-loader-static-files.js"></script>
     <script src="js/jquery-3.2.1.min.js" charset="utf-8"></script>
+
     <script src="js/module/app.js" charset="utf-8"></script>
     <script src="js/module/profile.js" charset="utf-8"></script>
     <script src="js/module/profileregister.js" charset="utf-8"></script>
@@ -52,19 +57,19 @@
     <link rel="icon" href="res/icon/windows/Square310x310Logo.scale-100.png">
     <title>FG100</title>
 </head>
-<body>
+<body ng-controller="TranslationController">
     <div class="tabs-striped tabs tabs-positive tabs-icon-top" ng-controller="TabController">
         <a id="home" ng-href="#" class="tab-item" ng-class="{active : isActive('') || isActive('/')}">
           <i class="icon ion-home"></i>
-          Home
+          {{ 'BUTTON.HOME' | translate }}
         </a>
         <a class="tab-item" ng-href="#/favourites" ng-class="{active : isActive('/favourites')}">
           <i class="icon ion-star"></i>
-          Favorites
+          {{ 'BUTTON.FAVOURITE' | translate }}
         </a>
         <a class="tab-item" ng-href="#/login" ng-class="{active : isActive('/profile') || isActive('/login') || isActive('/register')}">
           <i class="icon ion-gear-a"></i>
-          Profile
+          {{ 'BUTTON.PROFILE' | translate }}
         </a>
     </div>
     <div ng-view></div>

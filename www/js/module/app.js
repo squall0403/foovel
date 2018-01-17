@@ -52,7 +52,8 @@
     $translateProvider.useSanitizeValueStrategy('escape');
   }]);
 
-  app.controller('TranslationController', ['$translate', function($translate){ // Controller for translation provider, primarily getting languages packs, save to local storage
+  app.controller('TranslationController', ['$scope', '$translate', function($scope, $translate){ // Controller for translation provider, primarily getting languages packs, save to local storage
+    $scope.langLoaded = false;
 
     if (!localStorage.getItem('lang')) { // Get user selected language from cache
       localStorage.setItem('lang','en');
@@ -63,7 +64,8 @@
 
     $translate.refresh(userLang);
     $translate.use(userLang); // translate using user selected language
-
+    $scope.langLoaded=true;
+    console.log($scope.langLoaded);
   }]);
 
 

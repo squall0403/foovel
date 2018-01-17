@@ -25,7 +25,7 @@
     "REGISTER": "Register account",
     "EDIT":"Edit info",
     "SAVE":"Save",
-    "EXIT":"Exit"
+    "EXIT":"Exit editing"
   },
   "FORM":{
     "PASSWORD":"Password",
