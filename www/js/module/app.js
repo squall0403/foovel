@@ -52,6 +52,27 @@
     $translateProvider.useSanitizeValueStrategy('escape');
   }]);
 
+  app.factory('cordova', function () { // Event for device ready
+    return {
+      onReady: function(){
+        document.addEventListener("deviceready", this.ready, false);
+      },
+      ready: function(){
+        $('#loader').css('display','none');
+        $('#main').css('display','block');
+
+        profile();
+        profileLogin();
+        profileRegister();
+      }
+    }
+  });
+
+  app.controller('PlatformCtrl', function($scope, cordova) { // Controll to load device ready event
+    cordova.onReady();
+  });
+
+
   app.controller('TranslationController', ['$scope', '$translate', function($scope, $translate){ // Controller for translation provider, primarily getting languages packs, save to local storage
     $scope.langLoaded = false;
 
@@ -65,7 +86,6 @@
     $translate.refresh(userLang);
     $translate.use(userLang); // translate using user selected language
     $scope.langLoaded=true;
-    console.log($scope.langLoaded);
   }]);
 
 

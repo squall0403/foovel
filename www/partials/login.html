@@ -1,9 +1,10 @@
 <section>
-  <form ng-submit="profileLoginForm.$valid && login()" name="profileLoginForm">
+  <ion-spinner class="spinner-royal" ng-show="loggedIn" icon="ripple" style="margin:45%;float:left"></ion-spinner>
+  <form ng-show="!loggedIn" ng-submit="profileLoginForm.$valid && login()" name="profileLoginForm">
     <div class="bar bar-header bar-positive" style="position: inherit">
       <h1 class="title">{{'LABEL.LOGIN' | translate}}</h1>
     </div>
-      <div class="list list-inset">
+    <div class="list list-inset">
       <label class="item item-input">
         <input type="number" placeholder="{{'FORM.PHONE' | translate}}" ng-model="phone">
       </label>

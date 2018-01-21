@@ -8,7 +8,9 @@
     "GRADCRITERIA":"Look for",
     "LOCATION":"Location",
     "LOGIN":"Login",
-    "LOGOUT":"Logout"
+    "LOGOUT":"Logout",
+    "FIRSTNAME":"Firstname",
+    "LASTNAME":"Lastname"
 
   },
   "BUTTON":{
@@ -25,7 +27,7 @@
     "REGISTER": "Register account",
     "EDIT":"Edit info",
     "SAVE":"Save",
-    "EXIT":"Exit editing"
+    "EXIT":"Exit"
   },
   "FORM":{
     "PASSWORD":"Password",

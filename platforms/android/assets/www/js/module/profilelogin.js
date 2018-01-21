@@ -1,5 +1,5 @@
 // Pro login control module
-(function(){
+(function profileLogin(){
 
   var profileLogin = angular.module('profileLogin', [
 
@@ -16,14 +16,18 @@
     } // Used to encrypt username add password to a string of Base64
 
     // check cache for local profiles
-
+    $scope.loggedIn = false;
     if (localStorage.getItem('inLog')) { // If login info is availavle, redirect user to profile page
+      $scope.loggedIn = true;
       $location.path('/profile');
     }
     //Login function
     $scope.login = function(){
       var str = "Basic " + b64EncodeUnicode($scope.phone + ":" + $scope.password); // Assign encrypt info to var str
 
+      alert('phone ' + $scope.phone );
+      alert('password ' + $scope.password );
+      alert(str);
       var settings = { // Define settins for $http call
         method: 'GET',
         url: BASE_URL + 'profiles/',
@@ -31,6 +35,7 @@
         async: true,
         crossDomain: true
       };
+
         $http(settings).then(function(data){ // Perform $http call
           var localProfile = JSON.stringify(data.data[0]);
           localStorage.setItem('auth',str);

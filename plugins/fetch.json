@@ -102,5 +102,21 @@
     },
     "is_top_level": true,
     "variables": {}
+  },
+  "cordova-plugin-file-transfer": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-file-transfer@^1.7.0"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "com.tiltshiftfocus.cordova.plugin.clearCache": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-cache@^1.0.5"
+    },
+    "is_top_level": true,
+    "variables": {}
   }
 }

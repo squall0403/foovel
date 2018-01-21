@@ -51,28 +51,37 @@
     <script src="js/module/profileregister.js" charset="utf-8"></script>
     <script src="js/module/profilelogin.js" charset="utf-8"></script>
     <script src="js/module/favourites.js" charset="utf-8"></script>
-
     <link rel="manifest" href="../package.json">
     <link rel="stylesheet" href="css/ionic.css">
     <link rel="icon" href="res/icon/windows/Square310x310Logo.scale-100.png">
     <title>FG100</title>
 </head>
-<body ng-controller="TranslationController">
-    <div class="tabs-striped tabs tabs-positive tabs-icon-top" ng-controller="TabController">
-        <a id="home" ng-href="#" class="tab-item" ng-class="{active : isActive('') || isActive('/')}">
-          <i class="icon ion-home"></i>
-          {{ 'BUTTON.HOME' | translate }}
-        </a>
-        <a class="tab-item" ng-href="#/favourites" ng-class="{active : isActive('/favourites')}">
-          <i class="icon ion-star"></i>
-          {{ 'BUTTON.FAVOURITE' | translate }}
-        </a>
-        <a class="tab-item" ng-href="#/login" ng-class="{active : isActive('/profile') || isActive('/login') || isActive('/register')}">
-          <i class="icon ion-gear-a"></i>
-          {{ 'BUTTON.PROFILE' | translate }}
-        </a>
+<!-- <body> -->
+
+<body ng-controller="PlatformCtrl">
+  <div id="loader">
+    <ion-spinner class="spinner-royal" icon="ripple" style="margin:45%;float:left"></ion-spinner>
+  </div>
+    <div ng-controller="TranslationController" id="main" style="display:none">
+
+    <!-- <div ng-controller="TranslationController" id="main"> -->
+      <div class="tabs-striped tabs tabs-positive tabs-icon-top" ng-controller="TabController" ng-if="langLoaded">
+          <a id="home" ng-href="#" class="tab-item" ng-class="{active : isActive('') || isActive('/')}">
+            <i class="icon ion-home"></i>
+            {{ 'BUTTON.HOME' | translate }}
+          </a>
+          <a class="tab-item" ng-href="#/favourites" ng-class="{active : isActive('/favourites')}">
+            <i class="icon ion-star"></i>
+            {{ 'BUTTON.FAVOURITE' | translate }}
+          </a>
+          <a class="tab-item" ng-href="#/login" ng-class="{active : isActive('/profile') || isActive('/login') || isActive('/register')}">
+            <i class="icon ion-gear-a"></i>
+            {{ 'BUTTON.PROFILE' | translate }}
+          </a>
+      </div>
+      <div ng-view></div>
     </div>
-    <div ng-view></div>
+
   <script type="text/javascript" src="cordova.js"></script>
 </body>
 

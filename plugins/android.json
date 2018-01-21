@@ -39,6 +39,12 @@
     },
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "net.fastget.fg"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "net.fastget.fg"
+    },
+    "com.tiltshiftfocus.cordova.plugin.clearCache": {
+      "PACKAGE_NAME": "net.fastget.fg"
     }
   },
   "dependent_plugins": {

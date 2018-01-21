@@ -9,6 +9,8 @@
     "LOCATION":"Địa điểm",
     "LOGIN":"Đăng nhập",
     "LOGOUT":"Đăng xuất",
+    "FIRSTNAME":"Tên",
+    "LASTNAME":"Họ"
 
   },
   "BUTTON":{
@@ -23,14 +25,14 @@
     "CLEAR":"Xóa",
     "LOGOUT":"Đăng xuất",
     "REGISTER": "Đăng ký tài khoản",
-    "EDIT":"Thay đổi thông tin",
+    "EDIT":"Sửa thông tin",
     "SAVE":"Lưu",
     "EXIT":"Thoát"
   },
   "FORM":{
     "PASSWORD":"Mật khẩu",
     "LOGINID":"Mã đăng nhập",
-    "PHONE":"Số điện thoại",
+    "PHONE":"Điện thoại",
     "FIRSTNAME":"Tên",
     "LASTNAME":"Họ",
     "EMAIL":"Email",

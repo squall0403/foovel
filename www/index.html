@@ -51,16 +51,20 @@
     <script src="js/module/profileregister.js" charset="utf-8"></script>
     <script src="js/module/profilelogin.js" charset="utf-8"></script>
     <script src="js/module/favourites.js" charset="utf-8"></script>
-
     <link rel="manifest" href="../package.json">
     <link rel="stylesheet" href="css/ionic.css">
     <link rel="icon" href="res/icon/windows/Square310x310Logo.scale-100.png">
     <title>FG100</title>
 </head>
-<body>
+<!-- <body> -->
 
-    <div ng-controller="TranslationController" >
-      <ion-spinner class="spinner-royal" ng-if="!langLoaded" icon="ripple" style="margin:45%;float:left"></ion-spinner>
+<body ng-controller="PlatformCtrl">
+  <div id="loader">
+    <ion-spinner class="spinner-royal" icon="ripple" style="margin:45%;float:left"></ion-spinner>
+  </div>
+    <div ng-controller="TranslationController" id="main" style="display:none">
+
+    <!-- <div ng-controller="TranslationController" id="main"> -->
       <div class="tabs-striped tabs tabs-positive tabs-icon-top" ng-controller="TabController" ng-if="langLoaded">
           <a id="home" ng-href="#" class="tab-item" ng-class="{active : isActive('') || isActive('/')}">
             <i class="icon ion-home"></i>

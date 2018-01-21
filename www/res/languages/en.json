@@ -8,7 +8,9 @@
     "GRADCRITERIA":"Look for",
     "LOCATION":"Location",
     "LOGIN":"Login",
-    "LOGOUT":"Logout"
+    "LOGOUT":"Logout",
+    "FIRSTNAME":"Firstname",
+    "LASTNAME":"Lastname"
 
   },
   "BUTTON":{

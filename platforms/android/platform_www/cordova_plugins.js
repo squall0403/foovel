@@ -369,6 +369,30 @@ module.exports = [
       "navigator.notification",
       "navigator"
     ]
+  },
+  {
+    "id": "cordova-plugin-file-transfer.FileTransferError",
+    "file": "plugins/cordova-plugin-file-transfer/www/FileTransferError.js",
+    "pluginId": "cordova-plugin-file-transfer",
+    "clobbers": [
+      "window.FileTransferError"
+    ]
+  },
+  {
+    "id": "cordova-plugin-file-transfer.FileTransfer",
+    "file": "plugins/cordova-plugin-file-transfer/www/FileTransfer.js",
+    "pluginId": "cordova-plugin-file-transfer",
+    "clobbers": [
+      "window.FileTransfer"
+    ]
+  },
+  {
+    "id": "com.tiltshiftfocus.cordova.plugin.clearCache.Cache",
+    "file": "plugins/com.tiltshiftfocus.cordova.plugin.clearCache/www/Cache.js",
+    "pluginId": "com.tiltshiftfocus.cordova.plugin.clearCache",
+    "clobbers": [
+      "cache"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -385,7 +409,9 @@ module.exports.metadata =
   "cordova-plugin-media-capture": "1.4.3",
   "cordova-plugin-network-information": "1.3.4",
   "cordova-plugin-vibration": "2.1.6",
-  "cordova-plugin-whitelist": "1.3.3"
+  "cordova-plugin-whitelist": "1.3.3",
+  "cordova-plugin-file-transfer": "1.7.0",
+  "com.tiltshiftfocus.cordova.plugin.clearCache": "1.0.5"
 };
 // BOTTOM OF METADATA
 });

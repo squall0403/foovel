@@ -52,7 +52,43 @@
     $translateProvider.useSanitizeValueStrategy('escape');
   }]);
 
-  app.controller('TranslationController', ['$translate', function($translate){ // Controller for translation provider, primarily getting languages packs, save to local storage
+  app.factory('cordova', function () { // Event for device ready
+    return {
+      onReady: function(){
+        document.addEventListener("deviceready", this.ready, false);
+      },
+      ready: function(){
+        $('#loader').css('display','none');
+        $('#main').css('display','block');
+
+        profile();
+        profileLogin();
+        profileRegister();
+      }
+    }
+  });
+
+  app.controller('PlatformCtrl', function($scope, cordova) { // Controll to load device ready event
+    cordova.onReady();
+
+    // /Register service worker
+    // if ('serviceWorker' in navigator) {
+    //   window.addEventListener('load', function() {
+    //     navigator.serviceWorker.register('sw.js').then(function(registration) {
+    //       // Registration was successful
+    //       console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    //     }, function(err) {
+    //       // registration failed :(
+    //       console.log('ServiceWorker registration failed: ', err);
+    //     });
+    //   });
+    // }
+
+  });
+
+
+  app.controller('TranslationController', ['$scope', '$translate', function($scope, $translate){ // Controller for translation provider, primarily getting languages packs, save to local storage
+    $scope.langLoaded = false;
 
     if (!localStorage.getItem('lang')) { // Get user selected language from cache
       localStorage.setItem('lang','en');
@@ -63,7 +99,7 @@
 
     $translate.refresh(userLang);
     $translate.use(userLang); // translate using user selected language
-
+    $scope.langLoaded=true;
   }]);
 
 

@@ -1,5 +1,5 @@
 // Profile register module
-(function(){
+(function profileRegister(){
   var profileRegister = angular.module('profileRegister', [
 
   ]);
@@ -25,7 +25,9 @@
       headers:{
         "x-csrftoken": "csrf",
         "content-type": "application/json",
-        "authorization": "Basic ZmFzdGdldDpGZHNhJDMyMQ=="
+        "authorization": "Basic ZmFzdGdldDpGZHNhJDMyMQ==",
+        'Access-Control-Allow-Methods':'*',
+        'Access-Control-Allow-Origin':'*'
       },
       async: true,
       crossDomain: true
@@ -41,17 +43,18 @@
         "password":this.password,
         "address":this.address,
         "email":this.email,
+        "language":localStorage.getItem('lang')
       };
 
       // Call API to create profile
       settings.data = Object.assign(settings.data,profileObject);
-
+      console.log(JSON.stringify(settings.data));
 
       try {
         $http(settings).then(function(data){
             alert('Accout created, Logging in')
             var localProfile = JSON.stringify(data.data);
-            var auth = profileObject.username + ":" + profileObject.password;
+            var auth = b64EncodeUnicode(profileObject.username + ":" + profileObject.password);
             localStorage.setItem('auth',auth);
             localStorage.setItem('inLog',localProfile); // on success log in, store login info to cache
             $location.path('/profile'); // redirect user to profile page
