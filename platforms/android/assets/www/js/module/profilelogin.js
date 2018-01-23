@@ -5,15 +5,7 @@
 
   ]); // module
 
-  profileLogin.controller('ProfileLoginCtroller', function($scope, $http, $location){
-
-    // Encrypt Base64 function
-    function b64EncodeUnicode(str) {
-      return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g,
-      function toSolidBytes(match, p1) {
-        return String.fromCharCode('0x' + p1);
-      }));
-    } // Used to encrypt username add password to a string of Base64
+  profileLogin.controller('ProfileLoginCtroller', ['$scope', '$http', '$location', 'GlobalFunction',function($scope, $http, $location, GlobalFunction){
 
     // check cache for local profiles
     $scope.loggedIn = false;
@@ -23,11 +15,8 @@
     }
     //Login function
     $scope.login = function(){
-      var str = "Basic " + b64EncodeUnicode($scope.phone + ":" + $scope.password); // Assign encrypt info to var str
+      var str = "Basic " + GlobalFunction.b64EncodeUnicode($scope.phone + ":" + $scope.password); // Assign encrypt info to var str
 
-      alert('phone ' + $scope.phone );
-      alert('password ' + $scope.password );
-      alert(str);
       var settings = { // Define settins for $http call
         method: 'GET',
         url: BASE_URL + 'profiles/',
@@ -46,6 +35,6 @@
         }) // $http function
     } // login function
 
-  }); // Controller
+  }]); // Controller
 
 })();

@@ -6,66 +6,9 @@
     'profileLogin' // Inject Profile login module
   ]);
 
-  myProfile.factory('uploadImage', function() {
-    return {
-      upload: function(uri, url, username, phone, language, auth, filekey) {
-        try {
+  myProfile.controller('ProfileController', ['$scope', '$location', '$http', 'GlobalFunction', function($scope, $location, $http, GlobalFunction) {
 
-          var imageURI = uri.slice(0, uri.search("\\?"));
-          // Verify server has been entered
-          var server = url;
-          if (server) {
-            // Specify transfer options
-            var options = new FileUploadOptions();
-            options.fileKey = filekey;
-            options.fileName = Math.random() + imageURI.substr(imageURI.lastIndexOf('/') + 1);
-            options.mimeType = "image/jpeg";
-            options.httpMethod = "PUT";
-            options.chunkedMode = false;
-            options.headers = {
-              'authorization': auth,
-              'Access-Control-Allow-Methods': '*'
-            };
-            var params = {};
-            params.async = true;
-            params.crossDomain = true;
-            params.username = username;
-            params.phone = phone;
-            params.language = language;
-
-            options.params = params;
-
-            // Transfer picture to server
-            var ft = new FileTransfer();
-            ft.upload(imageURI, server, function(r) {
-                window.cache.clear(function() {}, function() {});
-                window.cache.cleartemp();
-                location.reload();
-              },
-              function(error) {
-                // alert("Upload failed: Code = "+error.code);
-                // alert("Upload failed: Code = "+ JSON.stringify(error) );
-              }, options);
-          } else {
-            // alert("Server Not Found");
-          }
-        } catch (exce) {
-          alert(exce);
-        }
-      } // function upload
-
-    } //return statement
-  }); // factory
-
-  myProfile.controller('ProfileController', function($scope, $location, $http, uploadImage) {
-    // Encrypt Base64 function
-    function b64EncodeUnicode(str) {
-      return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g,
-        function toSolidBytes(match, p1) {
-          return String.fromCharCode('0x' + p1);
-        }));
-    } // Used to encrypt username add password to a string of Base64
-
+    // Declear Variables
     var displayProfile = localStorage.getItem('inLog'); //Get log in data from cache
     var openedProfile = JSON.parse(displayProfile); // get profile from form
     var auth = localStorage.getItem('auth');
@@ -86,13 +29,17 @@
       }
     };
 
+    // Get profile detail
     $scope.profile = JSON.parse(displayProfile); // Set profile to element 0 in array, profile is linked to model in html template
-    if ($scope.profile.avatar == null) {
+    if ($scope.profile.avatar == null) { // If profile avatar not null, set it to default img
       $scope.profile.avatar = 'img/profile.jpg';
     }
+
+    // Define logout function
     $scope.logOut = function() { // Logout function
       localStorage.removeItem('inLog'); // Clear storage
       localStorage.removeItem('auth'); // Clear storage
+      // Clear cache
       window.cache.clear(function() {}, function() {});
       window.cache.cleartemp();
       $location.path('/login'); // redirect to login page
@@ -157,11 +104,13 @@
       // Get URI of picture to upload
       navigator.camera.getPicture(
         function(uri) {
-          uploadImage.upload(uri, $scope.profile.url, $scope.profile.username, $scope.profile.phone, $scope.profile.language, auth, "avatar");
+          // Call service to upload image
+          GlobalFunction.upload(uri, $scope.profile.url, $scope.profile.username, $scope.profile.phone, $scope.profile.language, auth, "avatar");
         },
-        function(e) {
+        function(e) { // Error callback
 
         }, {
+          // Setup image select
           quality: 100,
           targetWidth: 100,
           targetHeight: 100,
@@ -173,6 +122,6 @@
         }
       );
     } // Change avatar
-  }); // controller
+  }]); // controller
 
 })();
