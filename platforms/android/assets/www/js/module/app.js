@@ -8,6 +8,7 @@
   var app = angular.module('myApp', [
     'myProfile', //load module to control profile
     'myFavourites', //load module to control favourites
+    'myMap', //load module to control map
     'ngRoute',
     'pascalprecht.translate', //load module to control translation
     'ionic' //load module ionic
@@ -91,6 +92,10 @@
       templateUrl: 'partials/register.html',
       controller: 'ProfileRegisterCtroller'
     }).
+    when('/', {
+      templateUrl: 'partials/map.html',
+      controller: 'MapController'
+    }).
     otherwise('/');
 
   }]);
@@ -130,9 +135,9 @@
   });
 
   // Set up device ready function
-  app.controller('PlatformCtrl', function($scope, cordova) { // Controll to load device ready event
+  app.controller('PlatformCtrl', ['$scope', 'cordova','$location', function($scope, cordova, $location) { // Controll to load device ready event
     cordova.onReady();
-  });
+  }]);
   // Set up device ready function
 
   // Set up Translation provider

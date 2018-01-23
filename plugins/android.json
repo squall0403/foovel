@@ -45,6 +45,10 @@
     },
     "com.tiltshiftfocus.cordova.plugin.clearCache": {
       "PACKAGE_NAME": "net.fastget.fg"
+    },
+    "cordova-plugin-googlemaps": {
+      "API_KEY_FOR_ANDROID": "AIzaSyDs96sCsVkA2stZkeb75uhIm3dPxcCNWY8",
+      "PACKAGE_NAME": "net.fastget.fg"
     }
   },
   "dependent_plugins": {

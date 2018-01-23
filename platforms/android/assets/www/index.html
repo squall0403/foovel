@@ -47,6 +47,7 @@
     <script src="js/jquery-3.2.1.min.js" charset="utf-8"></script>
 
     <script src="js/module/app.js" charset="utf-8"></script>
+    <script src="js/module/map.js" charset="utf-8"></script>
     <script src="js/module/profile.js" charset="utf-8"></script>
     <script src="js/module/profileregister.js" charset="utf-8"></script>
     <script src="js/module/profilelogin.js" charset="utf-8"></script>
@@ -66,7 +67,7 @@
 
     <!-- <div ng-controller="TranslationController" id="main"> -->
       <div class="tabs-striped tabs tabs-positive tabs-icon-top" ng-controller="TabController" ng-if="langLoaded">
-          <a id="home" ng-href="#" class="tab-item" ng-class="{active : isActive('') || isActive('/')}">
+          <a id="home" ng-href="#/" class="tab-item" ng-class="{active : isActive('') || isActive('/')}">
             <i class="icon ion-home"></i>
             {{ 'BUTTON.HOME' | translate }}
           </a>
