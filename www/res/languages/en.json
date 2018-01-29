@@ -1,52 +1,54 @@
 {
-  "LABEL":{
-    "BIZCATE":"Business Category",
-    "LANGUAGE":"Language",
-    "EMAIL":"Email",
-    "ADDRESS":"Address",
-    "PHONE":"Phone",
-    "GRADCRITERIA":"Look for",
-    "LOCATION":"Location",
-    "LOGIN":"Login",
-    "LOGOUT":"Logout",
-    "FIRSTNAME":"Firstname",
-    "LASTNAME":"Lastname"
+  "LABEL": {
+    "BIZCATE": "Business Category",
+    "LANGUAGE": "Language",
+    "EMAIL": "Email",
+    "ADDRESS": "Address",
+    "PHONE": "Phone",
+    "GRADCRITERIA": "Look for",
+    "LOCATION": "Location",
+    "LOGIN": "Login",
+    "LOGOUT": "Logout",
+    "FIRSTNAME": "Firstname",
+    "LASTNAME": "Lastname"
 
   },
-  "BUTTON":{
-    "SEARCH":"Search",
-    "LOGIN":"Login",
-    "YES":"Yes",
-    "NO":"No",
-    "HOME":"Home",
-    "PROFILE":"Profile",
-    "FAVOURITE":"Favourtie",
-    "CHANGEPASS":"Change Password",
-    "CLEAR":"Clear",
-    "LOGOUT":"Logout",
+  "BUTTON": {
+    "SEARCH": "Search",
+    "LOGIN": "Login",
+    "YES": "Yes",
+    "NO": "No",
+    "HOME": "Home",
+    "PROFILE": "Profile",
+    "FAVOURITE": "Favourtie",
+    "CHANGEPASS": "Change Password",
+    "CLEAR": "Clear",
+    "LOGOUT": "Logout",
     "REGISTER": "Register account",
-    "EDIT":"Edit info",
-    "SAVE":"Save",
-    "EXIT":"Exit"
+    "EDIT": "Edit info",
+    "SAVE": "Save",
+    "EXIT": "Exit"
   },
-  "FORM":{
-    "PASSWORD":"Password",
-    "LOGINID":"Login ID",
-    "PHONE":"Phone number",
-    "FIRSTNAME":"Firstname",
-    "LASTNAME":"Lastname",
-    "EMAIL":"Email",
-    "ADDRESS":"Address"
+  "FORM": {
+    "PASSWORD": "Password",
+    "LOGINID": "Login ID",
+    "PHONE": "Phone number",
+    "FIRSTNAME": "Firstname",
+    "LASTNAME": "Lastname",
+    "EMAIL": "Email",
+    "ADDRESS": "Address"
   },
-  "TXT":{
-    "REMOVE_SP_CONTENT":"You are going to remove *SP Name* from your favourite",
-    "REMOVE_SP_TITLE":"Remove SP",
-    "OR":"Or",
+  "TXT": {
+    "REMOVE_SP_CONTENT": "You are going to remove *SP Name* from your favourite",
+    "REMOVE_SP_TITLE": "Remove SP",
+    "OR": "Or",
     "REGISTER_ACC": "register for an account ",
-    "HERE":"here",
+    "HERE": "here",
     "REGISTER": "Register account",
     "HAD_ACC": " if you had account",
-    "USER_INFO":"User information",
-    "SETTINGS":"Settings"
+    "USER_INFO": "User information",
+    "SETTINGS": "Settings",
+    "LOADING": "loading",
+    "MAP": "map"
   }
 }

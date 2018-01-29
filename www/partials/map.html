@@ -1,3 +1,16 @@
 <section>
-  <div id="map_canvas" style="width:100%;#CFD8DC:blue;height:500px">  </div>
+  <div id="mapLoader">
+    <div class="row">
+      <div class="col">
+        <ion-spinner class="spinner-balanced" icon="lines" style="margin:45% 45% 2% 45%;float:left"></ion-spinner>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <p style="text-align:center">{{"TXT.LOADING" | translate}} {{"TXT.MAP" | translate}}</p>
+      </div>
+    </div>
+
+  </div>
+  <div id="map_canvas" style="width:100%;#CFD8DC:blue;height:500px;display:none">  </div>
 </section>
